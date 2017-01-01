@@ -5,7 +5,7 @@ Here we'll abordding all recurses off flask with start one simple appication's -
 - [x] 'Hello Word'
 - [x] Render template
 - [x] Redirect
-
+- [x] Static Folder
     
     
 ## Flask Full Study
