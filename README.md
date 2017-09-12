@@ -1,6 +1,6 @@
     Flask Full Study
 
-Here we'll use all recurses off flask with start one simple application's - 'Hello World' to a full api project.
+Here we'll use all resources off flask with start one simple application's - 'Hello World' to a full api project.
 
 - [x] 'Hello Word'
 - [x] Render template
