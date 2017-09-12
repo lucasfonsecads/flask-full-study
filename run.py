@@ -7,11 +7,15 @@ app = Flask(__name__, static_folder='public/assets') #Here we found the unique r
 
 @app.route('/') #Hello World for everybody, run you app and show for the world 
 def index():
-	return '<h1>'Hello World'</h1>'
+	return '<h1>Hello World</h1>'
 
 @app.route('/template')
 def renderT():
 	return render_template('index.html') #use to render the template with jinja2
+
+@app.route('/user/<name>')
+def userL(name):
+	return render_template('user.html', name=name)
 
 @app.route('/redirect') #example to use redirect with flask 
 def redirect():
