@@ -13,7 +13,7 @@ def index():
 def renderT():
 	return render_template('index.html') #use to render the template with jinja2
 
-@app.route('/user/<name>')
+@app.route('/user/<name>') #example to use variable in your template
 def userL(name):
 	return render_template('user.html', name=name)
 
