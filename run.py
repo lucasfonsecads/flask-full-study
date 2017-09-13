@@ -16,6 +16,11 @@ def renderT():
 def userL(name):
 	return render_template('user.html', name=name)
 
+@app.route('/Teste')
+def teste():
+	return "<h1>TESTE</h1>"
+
+
 @app.route('/redirect') #example to use redirect with flask 
 def redirect():
 	return redirect('https://github.com')
