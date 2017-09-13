@@ -1,6 +1,6 @@
 import flask
-from flask import Flask, render_template, redirect
-from flask.ext.bootstrap import Bootstrap 
+from flask import Flask, render_template, redirect, abort
+from flask_bootstrap import Bootstrap 
 """
 Flask-Bootstrap is imported from the flask.ext name-space and initialized by
 passing the application instance in the constructor
@@ -20,18 +20,22 @@ def index():
 def renderT():
 	return render_template('index.html') #use to render the template with jinja2
 
-@app.route('/user/<name>') #example to use variable in your template
-def userL(name):
+@app.route('/user/<name>') 
+#Example to use variable in your template with dynamic route.
+#For access go in localhost/user/your-name 
+def user(name):
 	return render_template('user.html', name=name)
 
-@app.route('/bootstrap')
-def teste():
-	return render_template('base.html')
-
+@app.route('/bootstrap/<name>')
+#Example to access your bootstrap template with you put localhost/boostrap/your-name 
+#you will see the magic of flask
+def teste(name):
+	return render_template('base.html', name=name)
 
 @app.route('/redirect') #example to use redirect with flask 
 def redirect():
 	return redirect('https://github.com')
+
 
 if __name__ == '__main__':
 	app.run(debug=True, host='0.0.0.0', port=4000)

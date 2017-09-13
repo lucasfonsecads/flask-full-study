@@ -1,15 +1,24 @@
     Flask Full Study
 
-Here we'll use all resources off flask with start one simple application's - 'Hello World' to a full api project.
+Here we'll abordding all recurses off flask with start one simple appication's - 'Hello World' to a full api prroject.
 
 - [x] 'Hello Word'
 - [x] Render template
 - [x] Redirect
 - [x] Static Folder
+- [x] Meeting Jinja2
+- [x] Meeting bootstrap
+- [ ] Web Forms
     
     
 ## Flask Full Study
-    
+ - First Step start one virtualenv with this command:
+ 
+ ```shell
+ virtualenv env
+ cd env
+ source bin/activate
+ ```
  - Requirements
  
  ```shell
@@ -68,4 +77,54 @@ if __name__ == '__main__':
 - For run your app:
 ```shell
 python run.py
+```
+
+## Jinja2 Section
+
+- Jinja2 offers several control structures can be used to alter the flow od the template.
+
+- The following example shows how conditional statements can be entered in a template:
+
+```html
+{% if user %}
+  Hello, {{ user }}!
+{% else %}
+  Hello stranger!
+{% endif %}
+```
+
+- Another common need in templates is to render a list of elements:
+
+```html
+<ul>
+  {% for comment in comments %}
+  <li>{{ comment }}</li>
+  {% endfor %}
+</ul>
+```
+
+## Using bootstrap onde framework from Twitter with flask:
+
+- Requirements:
+
+```shell
+pip install flask-bootstrap
+```
+
+- Import Bootstrap for your flask application:
+
+```python
+from flask_bootstrap import Bootstrap
+
+boostrap = Boostrap(app)
+```
+For see one page using bootstrap go in templates/base.html
+run your app and access localhost/bootstrap and see the magic...
+
+## Web Forms
+
+- Requirements:
+
+```shell
+pip install flask-wtf
 ```
