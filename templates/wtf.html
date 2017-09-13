@@ -1,0 +1,8 @@
+
+{% block content %}
+<form method="POST">
+	{{ form.name.label }} {{ form.name(id='my-text-field') }}
+	{{ form.submit() }}		
+</form>
+
+{% endblock %}
