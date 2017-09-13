@@ -1,8 +1,16 @@
 import flask
 from flask import Flask, render_template, redirect
+from flask.ext.bootstrap import Bootstrap 
+"""
+Flask-Bootstrap is imported from the flask.ext name-space and initialized by
+passing the application instance in the constructor
+"""
 
-app = Flask(__name__, static_folder='public/assets') #Here we found the unique requered argument to the Flask -> (__name__)
+app = Flask(__name__, static_folder='public/assets') 
+#Here we found the unique requered argument to the Flask -> (__name__)
 #Here can you see the static_folder is one way to determine your public folder to access
+
+bootstrap = Bootstrap(app) #Here we start the bootstrap application using the app 
 
 @app.route('/') #Hello World for everybody, run you app and show for the world 
 def index():
@@ -16,9 +24,9 @@ def renderT():
 def userL(name):
 	return render_template('user.html', name=name)
 
-@app.route('/Teste')
+@app.route('/bootstrap')
 def teste():
-	return "<h1>TESTE</h1>"
+	return render_template('base.html')
 
 
 @app.route('/redirect') #example to use redirect with flask 
