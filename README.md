@@ -128,3 +128,24 @@ run your app and access localhost/bootstrap and see the magic...
 ```shell
 pip install flask-wtf
 ```
+
+- Cross-Site Request Forgery(CSRF) Protection:
+
+A CSRF attack occurs when a malicious website sends requests to a different website on which the victim is logged in. By default, Flask-WTF protects all forms against CSRF attacks.
+
+- To implement CSRF proteciton:
+
+```python
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'hard string'
+```
+
+- For generate one key in python command line:
+```python
+from os import urandom
+from base64 import b64encode
+import os
+
+random = os.urandom(64)
+key = b64encode(random).decode('utf-8')
+print (key)

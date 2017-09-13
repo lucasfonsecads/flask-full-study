@@ -7,9 +7,15 @@ passing the application instance in the constructor
 """
 
 app = Flask(__name__, static_folder='public/assets') 
-#Here we found the unique requered argument to the Flask -> (__name__)
-#Here can you see the static_folder is one way to determine your public folder to access
-
+"""
+Here we found the unique requered argument to the Flask -> (__name__)
+Here can you see the static_folder is one way to determine your public folder to access
+"""
+app.config['SECRET_KEY'] = 'my-precious' 
+"""
+Choice one hard string for protect your webapp
+if you like use python in command line generate your key. For this go in README and see the example
+"""
 bootstrap = Bootstrap(app) #Here we start the bootstrap application using the app 
 
 @app.route('/') #Hello World for everybody, run you app and show for the world 
