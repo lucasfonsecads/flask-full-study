@@ -1,6 +1,7 @@
 import flask
 from flask import Flask, render_template, redirect, abort
 from flask_bootstrap import Bootstrap 
+from formS import NameForm
 """
 Flask-Bootstrap is imported from the flask.ext name-space and initialized by
 passing the application instance in the constructor
@@ -17,6 +18,8 @@ Choice one hard string for protect your webapp
 if you like use python in command line generate your key. For this go in README and see the example
 """
 bootstrap = Bootstrap(app) #Here we start the bootstrap application using the app 
+
+#========================= FIRST STEP - START FLASK =========================#
 
 @app.route('/') #Hello World for everybody, run you app and show for the world 
 def index():
@@ -41,6 +44,18 @@ def teste(name):
 @app.route('/redirect') #example to use redirect with flask 
 def redirect():
 	return redirect('https://github.com')
+
+#========================= SECOND STEP  - WEB FORMS =========================#
+
+@app.route('/forms', methods=['GET', 'POST'])
+def formsIndex():
+	name = None
+	form = NameForm()
+	if form.validate_on_submit():
+		name = form.name.data
+		form.name.data = ''
+	return render_template('newindex.html', form=form, name=name)
+
 
 
 if __name__ == '__main__':
