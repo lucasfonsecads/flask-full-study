@@ -1,4 +1,5 @@
-    Flask Full Study
+
+## Flask Full Study
 
 Here we'll abordding all recurses off flask with start one simple appication's - 'Hello World' to a full api prroject.
 
@@ -11,7 +12,6 @@ Here we'll abordding all recurses off flask with start one simple appication's -
 - [ ] Web Forms
     
     
-## Flask Full Study
  - First Step start one virtualenv with this command:
  
  ```shell
@@ -103,7 +103,7 @@ python run.py
 </ul>
 ```
 
-## Using bootstrap onde framework from Twitter with flask:
+## Using bootstrap framework from Twitter with flask:
 
 - Requirements:
 
