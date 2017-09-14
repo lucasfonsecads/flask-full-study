@@ -1,7 +1,7 @@
 
 ## Flask Full Study
 
-Here we'll abordding all recurses off flask with start one simple appication's - 'Hello World' to a full api prroject.
+Here we'll abordding all recurses of flask with start one simple appication's - 'Hello World' to a full api prroject.
 
 - [x] 'Hello Word'
 - [x] Render template
@@ -10,29 +10,29 @@ Here we'll abordding all recurses off flask with start one simple appication's -
 - [x] Meeting Jinja2
 - [x] Meeting bootstrap
 - [ ] Web Forms
-    
-    
+
+
  - First Step start one virtualenv with this command:
- 
+
  ```shell
  virtualenv env
  cd env
  source bin/activate
  ```
  - Requirements
- 
+
  ```shell
  pip install flask
  ```
- 
+
  - Determine your public folder:
  ```python
- app = Flask(__name__, static_folder='public/assets') 
+ app = Flask(__name__, static_folder='public/assets')
  #one example to access the folder public and assets before
  ```
- 
+
  - Example to create one app flask:
- 
+
 ```python
 import flask
 from flask import Flask
