@@ -56,13 +56,13 @@ def formsIndex():
 		form.name.data = ''
 	return render_template('newindex.html', form=form, name=name)
 
-# @app.route('/forms2',  methods=['GET', 'POST']) #Test new function for form
-# def newform():
-# 	form = NameForm()
-# 	if form.validade_on_submit():
-# 		session['name'] = form.name.data
-# 		return redirect(url_for('newform'))
-# 	return render_template('newindex.html', form=form, name=session.get('name'))
+@app.route('/forms2',  methods=['GET', 'POST']) #Test new function for form
+def newform():
+	form = NameForm()
+	if form.validade_on_submit():
+		session['name'] = form.name.data
+		return redirect(url_for('newform'))
+	return render_template('newindex.html', form=form, name=session.get('name'))
 
 
 if __name__ == '__main__':
