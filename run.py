@@ -59,7 +59,7 @@ def formsIndex():
 @app.route('/forms2',  methods=['GET', 'POST']) #Test new function for form
 def newform():
 	form = NameForm()
-	if form.validade_on_submit():
+	if form.validate_on_submit():
 		session['name'] = form.name.data
 		return redirect(url_for('newform'))
 	return render_template('newindex.html', form=form, name=session.get('name'))
