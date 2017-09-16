@@ -1,7 +1,7 @@
 import flask
 from flask import Flask, render_template, redirect, abort, url_for, session
 from flask_bootstrap import Bootstrap
-from formS import NameForm
+from formS import NameForm #Import NameForm from formS.py chech the file
 """
 Flask-Bootstrap is imported from the flask.ext name-space and initialized by
 passing the application instance in the constructor
