@@ -149,3 +149,16 @@ import os
 random = os.urandom(64)
 key = b64encode(random).decode('utf-8')
 print (key)
+```
+- First function use Web Forms:
+
+```python
+@app.route('/forms', methods=['GET', 'POST']) #example to use the methods GET and POST
+def formsIndex():
+	name = None
+	form = NameForm()
+	if form.validate_on_submit():
+		name = form.name.data
+		form.name.data = ''
+	return render_template('newindex.html', form=form, name=name)
+```
