@@ -1,7 +1,8 @@
 import flask
-from flask import Flask, render_template, redirect, abort, url_for, session
+from flask import Flask, render_template, redirect, abort, url_for, session, flash
 from flask_bootstrap import Bootstrap
 from formS import NameForm #Import NameForm from formS.py chech the file
+# from flash import msgTest
 """
 Flask-Bootstrap is imported from the flask.ext name-space and initialized by
 passing the application instance in the constructor
@@ -47,23 +48,36 @@ def redirect():
 
 #========================= SECOND STEP  - WEB FORMS =========================#
 
-@app.route('/forms', methods=['GET', 'POST']) #example to use the methods GET and POST
-def formsIndex():
-	name = None
-	form = NameForm()
-	if form.validate_on_submit():
-		name = form.name.data
-		form.name.data = ''
-	return render_template('newindex.html', form=form, name=name)
+#OLD VERSION TO FORM.NAME.DATA
+# @app.route('/forms', methods=['GET', 'POST']) #example to use the methods GET and POST
+# def formsIndex():
+# 	name = None
+# 	form = NameForm()
+# 	if form.validate_on_submit():
+# 		name = form.name.data
+# 		form.name.data = ''
+# 	return render_template('newindex.html', form=form, name=name)
 
+#NEW VERSION TO FORM.NAME.DATA
 @app.route('/forms2',  methods=['GET', 'POST']) #Test new function for form
 def newform():
 	form = NameForm()
 	if form.validate_on_submit():
 		session['name'] = form.name.data
-		return redirect(url_for('newform'))
+		# return redirect(url_for(''))
 	return render_template('newindex.html', form=form, name=session.get('name'))
 
+@app.route('/msg', methods=['GET', 'POST']) #New function to try flash message
+def msgTest():
+	form = NameForm()
+	if form.validate_on_submit():
+		old_name = session.get('name')
+		if old_name is not None and old_name != form.name.data:
+			flash('You have changed your name!')
+		session['name'] = form.name.data
+		form.name.data = ''
+		# return redirect(url_for('msgTest'))
+	return render_template('newindex.html', form = form, name= session.get('name'))
 
 if __name__ == '__main__':
 	app.run(debug=True, host='0.0.0.0', port=4000)
