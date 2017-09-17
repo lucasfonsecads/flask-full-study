@@ -8,7 +8,7 @@ Flask-Bootstrap is imported from the flask.ext name-space and initialized by
 passing the application instance in the constructor
 """
 
-app = Flask(__name__, static_folder='public/assets')
+app = Flask(__name__, static_folder='public/assets', template_folder='templates')
 """
 Here we found the unique requered argument to the Flask -> (__name__)
 Here can you see the static_folder is one way to determine your public folder to access
@@ -48,7 +48,7 @@ def redirect():
 
 #========================= SECOND STEP  - WEB FORMS =========================#
 
-#OLD VERSION TO FORM.NAME.DATA
+# OLD VERSION TO FORM.NAME.DATA - TEST THIS VERSION FIRST 
 # @app.route('/forms', methods=['GET', 'POST']) #example to use the methods GET and POST
 # def formsIndex():
 # 	name = None
@@ -76,6 +76,9 @@ def msgTest():
 		session['name'] = form.name.data
 		form.name.data = ''
 	return render_template('newindex.html', form = form, name= session.get('name'))
+
+#========================= THIRD STEP  - SQL DATABASE =========================#
+
 
 if __name__ == '__main__':
 	app.run(debug=True, host='0.0.0.0', port=4000)

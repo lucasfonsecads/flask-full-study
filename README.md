@@ -10,6 +10,7 @@ Here we'll abordding all recurses of flask with start one simple appication's - 
 - [x] Meeting Jinja2
 - [x] Meeting bootstrap
 - [x] Web Forms
+- [ ] SQL Databases
 
 
  - First Step start one virtualenv with this command:
@@ -22,7 +23,7 @@ Here we'll abordding all recurses of flask with start one simple appication's - 
  - Requirements
 
  ```shell
- pip install flask
+ (env) pip install flask
  ```
 
  - Determine your public folder:
@@ -108,7 +109,7 @@ python run.py
 - Requirements:
 
 ```shell
-pip install flask-bootstrap
+(env) pip install flask-bootstrap
 ```
 
 - Import Bootstrap for your flask application:
@@ -126,7 +127,7 @@ run your app and access localhost/bootstrap and see the magic...
 - Requirements:
 
 ```shell
-pip install flask-wtf
+(env) pip install flask-wtf
 ```
 
 - Cross-Site Request Forgery(CSRF) Protection:
@@ -177,4 +178,17 @@ def msgTest():
     session['name'] = form.name.data
     form.name.data = ''
   return render_template('newindex.html', form = form, name= session.get('name'))
+```
+
+## SQL Databases
+
+A database stores application data in an organized way. The application then issues queries to retrieve specific portions as they are needed. The most commonly ysede databases for web applications are those based on the relational model, also called SQL databases in reference to the Structured Query Language they use.
+
+Python has packages for most database engines, Flask puts no restrictions on what database packages can be used. You can use 
+MySQL, Postgres, SQLite and others. Here we gonna use SQLAlchemy.
+
+- Requirements:
+
+```shell
+(env) pip install flask-sqlachemy
 ```
