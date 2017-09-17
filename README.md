@@ -9,7 +9,7 @@ Here we'll abordding all recurses of flask with start one simple appication's - 
 - [x] Static Folder
 - [x] Meeting Jinja2
 - [x] Meeting bootstrap
-- [ ] Web Forms
+- [x] Web Forms
 
 
  - First Step start one virtualenv with this command:
@@ -150,6 +150,7 @@ random = os.urandom(64)
 key = b64encode(random).decode('utf-8')
 print (key)
 ```
+
 - First function use Web Forms:
 
 ```python
@@ -161,4 +162,19 @@ def formsIndex():
 		name = form.name.data
 		form.name.data = ''
 	return render_template('newindex.html', form=form, name=name)
+```
+
+- Function with flash alert for changed names and storage the last name in variable:
+
+```python
+@app.route('/msg', methods=['GET', 'POST']) #New function to try flash message
+def msgTest():
+  form = NameForm()
+  if form.validate_on_submit():
+    old_name = session.get('name')
+    if old_name is not None and old_name != form.name.data:
+      flash('You have changed your name!')
+    session['name'] = form.name.data
+    form.name.data = ''
+  return render_template('newindex.html', form = form, name= session.get('name'))
 ```

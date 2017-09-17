@@ -64,7 +64,6 @@ def newform():
 	form = NameForm()
 	if form.validate_on_submit():
 		session['name'] = form.name.data
-		# return redirect(url_for(''))
 	return render_template('newindex.html', form=form, name=session.get('name'))
 
 @app.route('/msg', methods=['GET', 'POST']) #New function to try flash message
@@ -76,7 +75,6 @@ def msgTest():
 			flash('You have changed your name!')
 		session['name'] = form.name.data
 		form.name.data = ''
-		# return redirect(url_for('msgTest'))
 	return render_template('newindex.html', form = form, name= session.get('name'))
 
 if __name__ == '__main__':
