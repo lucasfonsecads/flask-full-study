@@ -58,6 +58,7 @@ def redirect():
 # 		form.name.data = ''
 # 	return render_template('newindex.html', form=form, name=name)
 
+
 #NEW VERSION TO FORM.NAME.DATA
 @app.route('/forms2',  methods=['GET', 'POST']) #Test new function for form
 def newform():
